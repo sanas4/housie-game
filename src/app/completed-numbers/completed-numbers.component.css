@@ -1,0 +1,7 @@
+.ncompleted {
+    background-color: lightgray;
+}
+.ncurrent {
+    background-color: green;
+    color: white;
+}
