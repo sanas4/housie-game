@@ -6,8 +6,19 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-  <app-root></app-root>
+<div app-root class="container-fluid root"></div>
+<script>
+  $(function () {
+    $("#disableTicker").click(function () {
+      $("#disableTicker").attr("disabled", "disabled");
+      setTimeout(function () {
+        $("#disableTicker").removeAttr("disabled");
+      }, 3000)
+    })
+  });
+</script>
 </body>
 </html>

@@ -24,9 +24,13 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/scripts/jquery-3.2.1.slim.min.js",
+              "src/scripts/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +123,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "new-housie-game"
 }
