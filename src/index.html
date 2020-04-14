@@ -19,6 +19,10 @@
       }, 3000)
     })
   });
+
+  $("td").click(function () {
+    $(this).addClass("selected").siblings().removeClass("selected");
+  });
 </script>
 </body>
 </html>

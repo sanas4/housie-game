@@ -13,9 +13,9 @@
   <div id="collapse{{game.id}}" class="collapse" [class.show]="isPlay" attr.aria-labelledby="heading{{game.id}}"
        data-parent="#accordion">
     <div class="card-body">
-      <button class="btn btn btn-primary" (click)="generateTicket()">
+      <!--<button class="btn btn btn-primary" (click)="generateTicket()">
         Generate Ticket
-      </button>
+      </button>-->
       <section class="row game">
         <div app-completed-numbers [game]="game" class="col-md-6 col-lg-6"></div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -25,20 +25,36 @@
             <div class="card resutls">
               <div class="card-body">
                 Ticket
-                <table class="chessboard table table-bordered" *ngIf="showHideTicket">
-                  <tr class="chessboard" *ngFor="let row of finalMatrix">
-                    <td class="chessboard" *ngFor="let number of row" [class.ncompleted]="isCompleted(number)">
-                     <pre *ngIf="number == 0"></pre>
-                     <pre *ngIf="number != 0">{{number}}</pre>
+                <table class="chessboard table table-bordered">
+                  <tr class="chessboard" *ngFor="let row of finalMatrix; let i = index" [attr.data-index]="i">
+                    <td class="chessboard" *ngFor="let number of row"
+                        (click)="selectNumber(number, i)">
+                      <pre *ngIf="number == 0"></pre>
+                      <pre *ngIf="number != 0">{{number}}</pre>
                     </td>
                   </tr>
                 </table>
-                <h5 class="card-title">Winners:</h5>
-                <div>First Five: {{game.firstFive ? (game.firstFive.numbers + " - " + game.firstFive.name) : ""}} </div>
+                <!--                <h5 class="card-title">Winners:</h5>-->
+                <div>
+                  <button (click)="firstRowWinner()">First Row Winner</button>
+                </div>
+                <div>
+                  <button (click)="secondRowWinner()">Second Row Winner</button>
+                </div>
+                <div>
+                  <button (click)="ThirdRowWinner()">Third Row Winner</button>
+                </div>
+                <div>
+                  <button (click)="fullHousieWinner()">Full Housie Winner</button>
+                </div>
+                <div>
+                  <button (click)="fourCornerWinner()">4 Corner Winner</button>
+                </div>
+                <!--<div>First Five: {{game.firstFive ? (game.firstFive.numbers + " - " + game.firstFive.name) : ""}} </div>
                 <div>1st Row: {{game.firstRow ? (game.firstRow.numbers + " - " + game.firstRow.name) : ""}}</div>
                 <div>2nd Row: {{game.secondRow ? (game.secondRow.numbers + " - " + game.secondRow.name) : ""}} </div>
                 <div>3rd Row: {{game.thirdRow ? (game.thirdRow.numbers + " - " + game.thirdRow.name) : ""}} </div>
-                <div>Full House: {{game.fullHouse ? (game.fullHouse.numbers + " - " + game.fullHouse.name) : ""}} </div>
+                <div>Full House: {{game.fullHouse ? (game.fullHouse.numbers + " - " + game.fullHouse.name) : ""}} </div>-->
               </div>
             </div>
           </div>

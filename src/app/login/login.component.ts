@@ -13,6 +13,7 @@ import {SessionStorageService} from 'ngx-webstorage';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
+  showErrorMessage = false;
 
   constructor(private formBuilder: FormBuilder,
               private userService: SignUpService,
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
             console.log('login successfull');
             this.router.navigate(['games']);
           } else {
+            this.showErrorMessage = true;
             console.log('Enter valid credentials');
           }
         });
