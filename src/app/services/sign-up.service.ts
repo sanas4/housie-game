@@ -38,11 +38,12 @@ export class SignUpService {
     this.generatedNumbers.push(number);
   }
 
- /* updateGeneratedNumbers(oldNumber, newNumber) {
+  updateGeneratedNumbers(oldNumber, newNumber) {
+    console.log('in service');
     this.generatedNumbers.update(oldNumber, newNumber);
   }
 
-  deleteAuserFromFirebase($key: string) {
-    this.userList.remove($key);
-  }*/
+  /* deleteAuserFromFirebase($key: string) {
+     this.userList.remove($key);
+   }*/
 }

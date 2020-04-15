@@ -32,8 +32,6 @@ export class PlayComponent implements OnInit {
     var rindex = Math.floor(Math.random() * this.game.remainingNumbers.length);
     var lastNumber = this.game.remainingNumbers.splice(rindex, 1)[0];
     this.game.completedNumbers.push(lastNumber);
-
-    console.log('completed numbers', this.game.completedNumbers);
     this.game.lastNumber = lastNumber;
     this.signUpService.getGeneratedNumbers().snapshotChanges().forEach(number => {
       number.forEach(userSnapshot => {
@@ -42,7 +40,16 @@ export class PlayComponent implements OnInit {
         this.mapped = Object.keys(number).map(key => (number[key]));
       });
     });
+    console.log('document id', this.key);
+    console.log('completed numbers old array', this.game.completedNumbers);
+    console.log('completed numbers new array', this.mapped);
     this.signUpService.addGeneratedNumbers(this.game.completedNumbers);
+    if (JSON.stringify(this.game.completedNumbers) == JSON.stringify(this.mapped)) {
+      console.log('True');
+    } else {
+      console.log('False');
+      this.signUpService.updateGeneratedNumbers(this.key, this.game.completedNumbers);
+    }
 
     this.game.updatedTime = Date.now();
     this.gameService.setGames(null);
